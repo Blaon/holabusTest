@@ -13,9 +13,9 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public abstract class Capabilities {
+public class Capabilities {
     int waitTime = 10;
-    AndroidDriver driver;
+    public AndroidDriver driver;
     WebDriverWait wait = new WebDriverWait(driver, waitTime);
 
     @BeforeTest

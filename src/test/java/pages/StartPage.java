@@ -11,4 +11,8 @@ public class StartPage {
     MobileElement oneTimePermissionButton;
     @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_deny_and_dont_ask_again_button")
     MobileElement denyPermissionButton;
+
+    public void clickOn(MobileElement element){
+        element.click();
+    }
 }
