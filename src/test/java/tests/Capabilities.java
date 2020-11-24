@@ -1,22 +1,24 @@
 package tests;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.html5.Location;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Capabilities {
     int waitTime = 10;
     public AndroidDriver driver;
-    WebDriverWait wait = new WebDriverWait(driver, waitTime);
+    public WebDriverWait wait;
+
+    public @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_one_time_button")
+    MobileElement oneTimePermissionButton;
 
     @BeforeTest
     public void setup() {
@@ -28,8 +30,11 @@ public class Capabilities {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 20);
         capabilities.setCapability(MobileCapabilityType.APP,"C:\\Users\\ilove\\IdeaProjects\\holabusTest\\src\\test\\resources\\apps\\HolabuszLite.apk");
-        capabilities.setCapability(MobileCapabilityType.NO_RESET,"false");
         capabilities.setCapability(MobileCapabilityType.FULL_RESET,"true");
+
+        capabilities.setCapability("appPackage","com.codecool.holabusz");
+        capabilities.setCapability("appActivity",".SplashActivity");
+
         URL url = null;
         try {
             url = new URL("http://127.0.0.1:4723/wd/hub");
@@ -40,6 +45,12 @@ public class Capabilities {
         }
         assert url != null;
         driver = new AndroidDriver(url, capabilities);
+        wait = new WebDriverWait(driver, waitTime);
+
+    }
+
+    public void setGPSCoordinates(Double latitude,Double longitude){
+        driver.setLocation(new Location(latitude,longitude,0));
     }
 
 
