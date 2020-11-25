@@ -2,25 +2,29 @@ package tests;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.junit.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.html5.Location;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import pages.StartPage;
+import pages.VehiclePage;
 
 import java.net.URL;
 
 public class Capabilities {
     int waitTime = 10;
-    public AndroidDriver driver;
-    public WebDriverWait wait;
+    public static AndroidDriver<AndroidElement> driver;
+    public static WebDriverWait wait;
+    StartPage startPage;
+    VehiclePage vehiclePage;
 
-    public @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_one_time_button")
-    MobileElement oneTimePermissionButton;
 
-    @BeforeTest
+
+    @Before
     public void setup() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
@@ -44,8 +48,12 @@ public class Capabilities {
             e.printStackTrace();
         }
         assert url != null;
-        driver = new AndroidDriver(url, capabilities);
+
+        driver = new AndroidDriver<>(url, capabilities);
+        System.out.println(driver);
         wait = new WebDriverWait(driver, waitTime);
+        startPage = new StartPage(driver);
+        vehiclePage = new VehiclePage(driver);
 
     }
 
@@ -54,9 +62,8 @@ public class Capabilities {
     }
 
 
-    @AfterTest
+    @After
     public void tearDown() {
-        driver.close();
         driver.quit();
     }
 }
