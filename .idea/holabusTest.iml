@@ -66,5 +66,19 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-api:5.6.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-commons:1.6.2" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/OpenCV/opencv/build/java/opencv-450.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <NATIVE>
+          <root url="file://$USER_HOME$/Downloads/OpenCV/opencv/build/java/x64" />
+        </NATIVE>
+        <SOURCES>
+          <root url="jar://$USER_HOME$/Downloads/OpenCV/opencv/build/java/opencv-450.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

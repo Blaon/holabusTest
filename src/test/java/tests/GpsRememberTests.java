@@ -1,6 +1,7 @@
 package tests;
 
 
+import io.appium.java_client.android.Activity;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;

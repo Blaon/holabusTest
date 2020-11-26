@@ -5,6 +5,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.junit.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
 import org.openqa.selenium.html5.Location;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -13,18 +16,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.StartPage;
 import pages.VehiclePage;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Capabilities {
-    int waitTime = 10;
+    int waitTime = 16;
     public static AndroidDriver<AndroidElement> driver;
     public static WebDriverWait wait;
     StartPage startPage;
     VehiclePage vehiclePage;
 
 
-
     @Before
+    @BeforeEach
     public void setup() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
@@ -58,6 +64,7 @@ public class Capabilities {
         startPage = new StartPage(driver);
         vehiclePage = new VehiclePage(driver);
 
+
     }
 
     public void setGPSCoordinates(Double latitude,Double longitude){
@@ -67,6 +74,7 @@ public class Capabilities {
 
 
     @After
+    @AfterEach
     public void tearDown() {
         driver.quit();
     }
