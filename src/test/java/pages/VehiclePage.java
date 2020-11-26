@@ -13,25 +13,25 @@ public class VehiclePage extends CommonPage{
 
     Capabilities capabilities = new Capabilities();
 
-    @AndroidFindBy(xpath = "//android.widget.Toast[@text='Permission Denied']")
+    public @AndroidFindBy(xpath = "//android.widget.Toast[@text='Permission Denied']")
     MobileElement deniedToast;
-    @AndroidFindBy(id = "com.codecool.holabusz:id/testText")
+    public @AndroidFindBy(id = "com.codecool.holabusz:id/testText")
     MobileElement meterText;
-    @AndroidFindBy(id = "com.codecool.holabusz:id/seekBar")
+    public @AndroidFindBy(id = "com.codecool.holabusz:id/seekBar")
     MobileElement meterSlider;
-    @AndroidFindBy(id = "com.codecool.holabusz:id/recyclerView")
+    public @AndroidFindBy(id = "com.codecool.holabusz:id/recyclerView")
     MobileElement tableForVehicles;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
+    public @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
             "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
             "android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/" +
             "android.view.ViewGroup[1]/android.widget.TextView[1]")
     MobileElement firstVehicleNumber;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
+    public @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
             "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
             "android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/" +
             "android.view.ViewGroup[1]/android.widget.TextView[4")
     MobileElement firstVehicleTimeOfArrival;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
+    public @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
             "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
             "android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/" +
             "android.view.ViewGroup[1]/android.widget.TextView[2]")

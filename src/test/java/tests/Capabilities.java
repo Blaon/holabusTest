@@ -35,6 +35,9 @@ public class Capabilities {
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 20);
         capabilities.setCapability(MobileCapabilityType.APP,"C:\\Users\\ilove\\IdeaProjects\\holabusTest\\src\\test\\resources\\apps\\HolabuszLite.apk");
         capabilities.setCapability(MobileCapabilityType.FULL_RESET,"true");
+        capabilities.setCapability("resetOnSessionStartOnly","true");
+
+
 
         capabilities.setCapability("appPackage","com.codecool.holabusz");
         capabilities.setCapability("appActivity",".SplashActivity");
@@ -50,7 +53,7 @@ public class Capabilities {
         assert url != null;
 
         driver = new AndroidDriver<>(url, capabilities);
-        System.out.println(driver);
+
         wait = new WebDriverWait(driver, waitTime);
         startPage = new StartPage(driver);
         vehiclePage = new VehiclePage(driver);
@@ -60,6 +63,7 @@ public class Capabilities {
     public void setGPSCoordinates(Double latitude,Double longitude){
         driver.setLocation(new Location(latitude,longitude,0));
     }
+
 
 
     @After

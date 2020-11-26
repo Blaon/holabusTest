@@ -12,7 +12,7 @@ public class StartPage extends CommonPage{
     MobileElement permissionAllTheTimeButton;
     public @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_one_time_button")
     MobileElement oneTimePermissionButton;
-    public @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_deny_and_dont_ask_again_button")
+    public @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_deny_button")
     MobileElement denyPermissionButton;
 
     public StartPage(AndroidDriver<AndroidElement> androidDriver) {
